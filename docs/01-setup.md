@@ -37,5 +37,29 @@ echo -e "\n\nDon't forget to use \`sudo ./.venv/bin/python ina228_test.py\` to e
 
 ```
 
+## Group *gpio* instead of *sudo*
+* If the user is a member of group *gpio*, sudoer privileges are not required.
+* First, see if the user is already a member
+```bash
+# Do this as a plain user
+groups | tr ' ' '\' | grep gpio\|i2c\|spi
+```
+If the output is "gpio", "i2c" and "spi" you don't need sudoer privileges, you can use
+```bash
+python ina228_test.py
+```
+* To become a member, do this
+```bash
+sudo usermod -aG pi gpio,i2c,spi
+```
+
+## Activate I2C and SPI
+* The INA228 communicates via I2C
+* Neopixels require SPI.
+* Do this as a plain user to check that these are active
+```bash
+raspi-config nonint get_i2c   # returns 0 = enabled, 1 = disabled
+raspi-config nonint get_spi   # returns 0 = enabled, 1 = disabled
+```
 
 

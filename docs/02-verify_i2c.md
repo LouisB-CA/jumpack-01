@@ -1,6 +1,11 @@
 # I2C Command Reference for INA228
 * This doc assumes the I2C address of the INA228 is 0x40
 
+## Verify I2C is enabled
+```bash
+raspi-config nonint get_i2c   # returns 0 = enabled, 1 = disabled
+```
+
 ## Using i2cdetect to Find Device Address
 ```bash
 i2cdetect -y 1

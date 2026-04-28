@@ -3310,7 +3310,7 @@
 		)
 		(uuid "612b6799-69d9-44ef-88cc-bae90d8e612e")
 	)
-	(text "Spare"
+	(text "Signal"
 		(exclude_from_sim no)
 		(at 265.43 60.198 0)
 		(effects
@@ -3319,6 +3319,16 @@
 			)
 		)
 		(uuid "738a2aca-b4fc-4ff9-b78e-01b45fb97733")
+	)
+	(text "Overvoltage Alert"
+		(exclude_from_sim no)
+		(at 266.7 153.162 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d6a96f03-88a3-4b9d-8101-ad8bd38bb22c")
 	)
 	(junction
 		(at 76.2 27.94)
@@ -3399,10 +3409,6 @@
 		(uuid "0d1c0c17-12ac-4411-ae86-4131b5905872")
 	)
 	(no_connect
-		(at 265.43 54.61)
-		(uuid "11b6ee45-f596-4a3a-b647-7624dc102edd")
-	)
-	(no_connect
 		(at 80.01 58.42)
 		(uuid "17109d63-9965-4b20-8cee-e80a082a29f7")
 	)
@@ -3429,10 +3435,6 @@
 	(no_connect
 		(at 52.07 60.96)
 		(uuid "4ea79aa2-e409-4887-a9f9-3f75acef91ca")
-	)
-	(no_connect
-		(at 80.01 45.72)
-		(uuid "5084d556-5bcc-46bc-8003-3ac9cd86bcfc")
 	)
 	(no_connect
 		(at 245.11 91.44)
@@ -4158,7 +4160,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 45.72) (xy 80.01 45.72)
+			(xy 73.66 45.72) (xy 85.09 45.72)
 		)
 		(stroke
 			(width 0)
@@ -6407,6 +6409,16 @@
 			"SUVORK5CYII="
 		)
 	)
+	(label "GPIO23"
+		(at 85.09 45.72 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "004851e4-8c54-4557-87e3-cc1adb7bd962")
+	)
 	(label "GPIO3{slash}SCL1"
 		(at 163.83 87.63 0)
 		(effects
@@ -6427,7 +6439,7 @@
 		)
 		(uuid "1aa69d6a-db58-4a85-8bc6-f1f52141b475")
 	)
-	(label "ALERT"
+	(label "~{ALERT}"
 		(at 266.7 147.32 0)
 		(effects
 			(font
@@ -6477,7 +6489,17 @@
 		)
 		(uuid "a1cb0f9a-5b27-4e0e-bc79-c6e0ff4c58f7")
 	)
-	(label "ALERT"
+	(label "GPIO23"
+		(at 265.43 54.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "df825a01-88f7-4d2e-8ed5-21b76ed796b5")
+	)
+	(label "~{ALERT}"
 		(at 163.83 100.33 0)
 		(effects
 			(font

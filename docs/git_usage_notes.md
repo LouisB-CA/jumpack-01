@@ -51,3 +51,22 @@ gh api repos/LouisB-CA/jumpack-01 --method PATCH --field default_branch=main
 git push origin --delete master
 
 ```
+
+
+## Updating the repo
+```bash
+# See what's modified
+git status
+
+# Stage all modified files
+git add .
+
+# Or stage specific files
+git add <filename>
+
+# Then commit
+git commit -m "Update docs"
+
+# Push
+git push
+```

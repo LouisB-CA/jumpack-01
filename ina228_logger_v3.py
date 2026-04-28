@@ -1,7 +1,8 @@
+
 #!/usr/bin/env python3
 
 """
-INA228 Logger - Version 2
+INA228 Logger - Version 3
 Logs INA228 power monitoring data to SQLite database
 """
 
@@ -13,6 +14,7 @@ import signal
 import sys
 import os
 import argparse
+import RPi.GPIO as GPIO
 from datetime import datetime
 from pathlib import Path
 
@@ -21,6 +23,7 @@ from pathlib import Path
 CONVERSION_TIME = 7      # 7 = 4120µs (maximum, best noise rejection)
 AVERAGING_COUNT = 4      # 4 = 16 samples (2^4 = 16)
 PID_FILE = "./ina228_logger.pid"
+GREEN_LED = 23          # gpio pin 23 is physical pin 16
 
 # Global flag for clean shutdown
 shutdown_requested = False
@@ -39,7 +42,7 @@ def check_already_running():
         try:
             with open(PID_FILE, 'r') as f:
                 old_pid = int(f.read().strip())
-            
+ 
             # Check if process is still running
             try:
                 os.kill(old_pid, 0)  # Doesn't actually kill, just checks if process exists
@@ -176,6 +179,14 @@ def log_reading(conn, ina228, verbose=False):
 def main():
     global shutdown_requested
 
+    # Set up the green LED
+    state = False
+    toggle = [ GPIO.HIGH, GPIO.LOW ]
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(GREEN_LED, GPIO.OUT, initial=toggle[state])      # initially OFF
+    state = not state
+    GPIO.output(GREEN_LED, toggle[state])        # Pull low -> ON
+    
     # Set up argument parser
     parser = argparse.ArgumentParser(description='INA228 Data Logger v2')
     parser.add_argument('-v', '--verbose', action='store_true',
@@ -239,6 +250,8 @@ def main():
         # Clean shutdown
         conn.close()
         remove_pid_file()
+        GPIO.output(GREEN_LED, toggle[False])
+        GPIO.cleanup()
         print(f"Logger stopped, database closed: {db_path}")
     
     return 0

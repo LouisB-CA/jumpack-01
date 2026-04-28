@@ -2,5 +2,8 @@
 __pycache__/
 *.pyc
 *.pyo
-kicad/**/*backups
+kicad/**/*backups/
 kicad/**/*bak
+*.db
+*.db-shm
+*.db-wal

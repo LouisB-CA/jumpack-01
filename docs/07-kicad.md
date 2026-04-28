@@ -3,6 +3,9 @@
 * The schematic was originally created in KiCad 9.0.7, on 2026-04-26
 * At the time, KiCad 10.0.0 was having issues
 
+# Project Library
+* All symbols are kept in the project library
+
 # Workflow for KiCad
 
 ## Method One uses *sshfs*
@@ -10,8 +13,8 @@
 <br>to mount the remote project directory
 ```bash
 REMOTE="cygnus:prgms/Python/jumpack-01"
-MNTPOINT="~/Projects/kicad"
-mkdir "$MNTPOINT"
+MNTPOINT="~/Projects/jumpack"
+mkdir -p "$MNTPOINT"
 sshfs "$REMOTE" "$MNTPOINT"
 ```
 * Edit the schematic in KiCad on Debian
