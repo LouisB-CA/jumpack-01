@@ -248,6 +248,7 @@ def main():
         print(f"Error in logging loop: {e}", file=sys.stderr)
     finally:
         # Clean shutdown
+        conn.execute("PRAGMA wal_checkpoint(TRUNCATE)")
         conn.close()
         remove_pid_file()
         GPIO.output(GREEN_LED, toggle[False])
