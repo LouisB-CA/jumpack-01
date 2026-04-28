@@ -155,7 +155,7 @@ def main():
     
     # Generate database filename with timestamp (no special chars)
     timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S')
-    db_path = f"./Databases/jumpack_{timestamp_str}_simulated.db"
+    db_path = f"./databases/jumpack_{timestamp_str}_simulated.db"
     
     # Print startup message
     print(f"Logger started, database: {db_path}")

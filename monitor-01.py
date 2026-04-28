@@ -14,7 +14,7 @@ import argparse
 
 # Configuration
 RPI_HOST = "pi@192.168.12.213"
-RPI_DB_PATH = "/home/pi/prgms/Python/jumpack-01/Databases/jumpack_2026-01-17_20-28-51.db"
+RPI_DB_PATH = "/home/pi/prgms/Python/jumpack-01/databases/jumpack_2026-01-17_20-28-51.db"
 LOCAL_DB_PATH = "/tmp/jumpack_monitor.db"
 
 def fetch_database():

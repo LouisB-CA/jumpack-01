@@ -9,7 +9,7 @@ import sqlite3
 import math
 from datetime import datetime, timedelta
 
-DB_PATH = "./Databases/jumpack_3000_dummy.db"  # change this to your actual database path
+DB_PATH = "./databases/jumpack_3000_dummy.db"  # change this to your actual database path
 
 # Parameters
 N = 1000

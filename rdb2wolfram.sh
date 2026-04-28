@@ -4,7 +4,7 @@
 # Extract data from RDB and output it as Wolfram Language
 #
 
-RDB="$(ls -tr ./Databases/jumpack*db | tail -1)"
+RDB="$(ls -tr ./databases/jumpack*db | tail -1)"
 
 echo "Running with RDB $RDB"
 

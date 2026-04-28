@@ -43,7 +43,7 @@ if [[ $# == 1 ]] ; then
 	fi
 fi
 
-RDB="$(ls -tr ./Databases/jumpack*db | tail -1)"
+RDB="$(ls -tr ./databases/jumpack*db | tail -1)"
 
 echo "Running with RDB $RDB"
 
