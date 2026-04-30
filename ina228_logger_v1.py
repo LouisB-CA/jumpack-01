@@ -5,12 +5,11 @@ INA228 Logger - Version 1
 Logs INA228 power monitoring data to SQLite database
 """
 
-import time
 import board
 import adafruit_ina228
 import sqlite3
 import signal
-import sys
+import functools, sys, time
 import argparse
 from datetime import datetime
 from pathlib import Path
@@ -129,5 +128,6 @@ def main():
 
 
 if __name__ == "__main__":
+    print = functools.partial(print, flush=True)
     sys.exit(main())
 

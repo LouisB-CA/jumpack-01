@@ -10,8 +10,10 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import sqlite3
+import functools
 from collections import deque
 
+print = functools.partial(print, flush=True)
 DB_PATH = "./charging.db"
 INTERVAL_MS = 2500
 MAX_POINTS = 600

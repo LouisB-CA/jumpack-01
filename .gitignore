@@ -7,3 +7,5 @@ kicad/**/*bak
 *.db
 *.db-shm
 *.db-wal
+*.tar
+*.tgz

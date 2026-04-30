@@ -6,18 +6,20 @@ INA228 Logger - Version 3
 Logs INA228 power monitoring data to SQLite database
 """
 
-import time
-import board
-import adafruit_ina228
+import functools, sys, time
+import argparse, os, signal
 import sqlite3
-import signal
-import sys
-import os
-import argparse
-import RPi.GPIO as GPIO
 from datetime import datetime
 from pathlib import Path
 
+try :
+    import board
+    import adafruit_ina228
+    import RPi.GPIO as GPIO
+except ModuleNotFoundError as e:
+    print(f"Error: {e}")
+    print(f"\nDid you `source ./.venv/bin/activate` into your virtual environment?\n")
+    sys.exit(0)
 
 # Configuration Constants
 CONVERSION_TIME = 7      # 7 = 4120µs (maximum, best noise rejection)
@@ -259,6 +261,7 @@ def main():
 
 
 if __name__ == "__main__":
+    print = functools.partial(print, flush=True)
     sys.exit(main())
 
 

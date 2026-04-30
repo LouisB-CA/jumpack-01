@@ -8,8 +8,7 @@ import sqlite3
 import matplotlib.pyplot as plt
 from datetime import datetime
 import subprocess
-import sys
-import time
+import functools, sys, time
 import argparse
 
 # Configuration
@@ -127,6 +126,7 @@ def main():
     return 0
 
 if __name__ == "__main__":
+    print = functools.partial(print, flush=True)
     try:
         sys.exit(main())
     except KeyboardInterrupt:

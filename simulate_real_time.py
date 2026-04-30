@@ -6,13 +6,10 @@ Simulates power monitoring by writing dummy data to SQLite database
 Based on INA228 Logger - Version 2
 """
 
-import time
 import board
 import math
 import sqlite3
-import signal
-import sys
-import os
+import functools, os, signal, sys, time
 import argparse
 from datetime import datetime
 from pathlib import Path
@@ -187,6 +184,7 @@ def main():
 
 
 if __name__ == "__main__":
+    print = functools.partial(print, flush=True)
     sys.exit(main())
 
 
